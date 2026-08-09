@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>똑순이 | 알뜰 소비 도우미</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+<header><div class="brand">똑순이</div><div class="tag">알뜰 소비 도우미</div></header>
+<section class="hero">
+<h1>사기 전에,<br><strong>똑순이에게 물어보세요.</strong></h1>
+<p>가격만 보는 추천이 아니라, 지출 일정과 현재 자산까지 함께 생각해요.</p>
+</section>
+
+<section class="panel">
+<h2>🛍️ 소비 분석</h2>
+<div class="grid">
+<label>무엇을 사고 싶나요?<input id="item" placeholder="예: 친구 생일선물"></label>
+<label>얼마를 사용할 예정인가요?<input id="budget" placeholder="예: 30,000원"></label>
+<label>어떤 목적으로 구매하나요?
+<select id="purpose"><option>선물</option><option>학용품</option><option>취미</option><option>생활용품</option><option>기타</option></select></label>
+<label>지출 일정은 어떻게 되나요?<input id="schedule" placeholder="예: 다음 달 교통비 5만원 필요"></label>
+<label class="wide">현재 자산은 어느 정도인가요?<input id="assets" placeholder="예: 현재 사용할 수 있는 돈 10만원"></label>
+</div>
+<button id="analyze">똑순이에게 물어보기 ✨</button>
+</section>
+
+<section id="result" class="panel result hidden">
+<h2>🧠 똑순이의 소비 분석</h2>
+<div id="answer"></div>
+</section>
+
+<section class="panel chat">
+<h2>💬 똑순이와 대화하기</h2>
+<div id="messages"><div class="ai bubble">안녕하세요! 소비와 관련해 궁금한 점을 물어보세요. 😊</div></div>
+<form id="form"><input id="chatInput" placeholder="예: 이 소비를 미루는 게 좋을까?"><button>전송</button></form>
+</section>
+<footer>똑순이는 구매를 무조건 권하지 않습니다. 더 합리적인 소비를 함께 생각합니다.</footer>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>

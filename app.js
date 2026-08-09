@@ -1,0 +1,6 @@
+const $=s=>document.querySelector(s);
+$("#analyze").onclick=async()=>{const data={item:$("#item").value,budget:$("#budget").value,purpose:$("#purpose").value,schedule:$("#schedule").value,assets:$("#assets").value};if(!data.item){alert("무엇을 사고 싶은지 입력해 주세요.");return}$("#analyze").disabled=true;$("#analyze").textContent="똑순이가 분석 중…";try{const r=await fetch("/api/recommend",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});const d=await r.json();$("#result").classList.remove("hidden");$("#answer").textContent=d.answer;$("#result").scrollIntoView({behavior:"smooth"})}catch(e){alert("분석 중 오류가 발생했습니다.")}finally{$("#analyze").disabled=false;$("#analyze").textContent="똑순이에게 물어보기 ✨"}};
+
+let history=[];
+$("#form").onsubmit=async e=>{e.preventDefault();const input=$("#chatInput"),q=input.value.trim();if(!q)return;add("user",q);history.push({role:"user",content:q});input.value="";const r=await fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:history})});const d=await r.json();add("ai",d.answer);history.push({role:"assistant",content:d.answer})};
+function add(role,text){const d=document.createElement("div");d.className=role+" bubble";d.textContent=text;$("#messages").append(d);d.scrollIntoView({behavior:"smooth"})}
